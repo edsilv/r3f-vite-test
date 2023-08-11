@@ -1,0 +1,64 @@
+{
+  "name": "r3f-vite-test",
+  "version": "0.0.1",
+  "repository": "git@github.com:edsilv/r3f-vite-test.git",
+  "license": "MIT",
+  "main": "dist/bundle/cjs/index.js",
+  "module": "dist/bundle/esm/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/bundle/esm/index.mjs",
+      "require": "./dist/bundle/cjs/index.js"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css"
+    },
+    "./dist/index.d.ts": {
+      "import": "./dist/index.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "dist/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "start": "vite",
+    "build": "node ./scripts/build.mjs",
+    "prepublishOnly": "node ./scripts/build.mjs && node scripts/validate.mjs",
+    "test": "vitest",
+    "ts-lint": "tsc --incremental --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.5",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
+    "@vitejs/plugin-react": "^3.1.0",
+    "eslint": "^8.32.0",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jsdom": "^21.1.1",
+    "prettier": "^2.8.3",
+    "terser": "^5.16.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4",
+    "vitest": "^0.27.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.13.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "0.155.0"
+  }
+}
